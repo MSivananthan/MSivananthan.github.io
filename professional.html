@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivananthan M | Cybersecurity & SOC Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ff9d;
+            --secondary: #00a2ff;
+            --accent: #ff2a6d;
+            --dark: #0a0a16;
+            --darker: #050510;
+            --light: #f0f0f0;
+            --gray: #2a2a3a;
+            --cyber-blue: #00f3ff;
+            --matrix-green: #00ff41;
+            --neon-purple: #b967ff;
+            --glass-bg: rgba(16, 18, 27, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --navy: #0a1a2a;
+            --card-bg: rgba(42, 42, 58, 0.4);
+            --text-primary: #f0f0f0;
+            --text-secondary: #ccc;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --primary: #0066ff;
+            --secondary: #ff3366;
+            --accent: #00cc99;
+            --dark: #f5f7fa;
+            --darker: #e8ecf1;
+            --light: #1a1a2e;
+            --gray: #d1d5db;
+            --cyber-blue: #0066ff;
+            --matrix-green: #00cc66;
+            --neon-purple: #9933ff;
+            --glass-bg: rgba(245, 247, 250, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --navy: #d1e0f0;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(0, 163, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 60%, rgba(0, 255, 157, 0.05) 0%, transparent 20%);
+        }
+        
+        /* Enhanced Animated Background Elements */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -3;
+            pointer-events: none;
+            animation: grid-pulse 8s infinite alternate;
+        }
+        
+        @keyframes grid-pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        
+        .hexagon-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 157, 0.05) 0%, transparent 10%),
+                radial-gradient(circle at 80% 20%, rgba(0, 162, 255, 0.05) 0%, transparent 10%),
+                radial-gradient(circle at 40% 40%, rgba(255, 42, 109, 0.03) 0%, transparent 10%);
+            background-size: 100px 100px;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        
+        .circuit-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 30% 70%, rgba(0, 243, 255, 0.03) 0%, transparent 15%),
+                radial-gradient(circle at 70% 30%, rgba(0, 255, 65, 0.03) 0%, transparent 15%);
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+        
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            box-shadow: 0 0 10px var(--primary);
+            z-index: 9999;
+            animation: scan 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particle-float 15s infinite linear;
+        }
+        
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .data-stream {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .stream-line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+            animation: stream 5s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes stream {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        .holographic-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .holographic-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--cyber-blue), transparent);
+            animation: hologram-pulse 4s infinite alternate;
+        }
+        
+        @keyframes hologram-pulse {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.4; }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Single Toggle Theme Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 5px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px var(--shadow-color);
+        }
+        
+        .theme-toggle-inner {
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .theme-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--primary);
+            transition: all 0.3s;
+            position: absolute;
+            left: 4px;
+        }
+        
+        [data-theme="light"] .theme-icon {
+            left: 34px;
+            color: var(--secondary);
+        }
+        
+        /* Enhanced Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 22, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 20px var(--shadow-color);
+        }
+        
+        [data-theme="light"] header {
+            background-color: rgba(245, 247, 250, 0.95);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-family: 'Audiowide', cursive;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            border-radius: 2px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            filter: drop-shadow(0 0 5px rgba(0, 162, 255, 0.7));
+            animation: logo-pulse 2s infinite alternate;
+        }
+        
+        @keyframes logo-pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(0, 255, 157, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle:hover {
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 157, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 162, 255, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            position: relative;
+        }
+        
+        .hero-text h1 span {
+            color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+        
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+        
+        .typing-text {
+            color: var(--primary);
+            font-weight: 600;
+            border-right: 2px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        @keyframes blink {
+            0%, 100% { border-color: var(--primary); }
+            50% { border-color: transparent; }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 157, 0.4);
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .cyber-dashboard {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .dashboard-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(5deg); }
+            50% { transform: translateY(-20px) rotateX(-5deg) rotateY(-5deg); }
+        }
+        
+        .dashboard-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: visible;
+            background: rgba(0, 255, 157, 0.05);
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            box-shadow:
+                0 0 30px rgba(0, 255, 157, 0.1),
+                inset 0 0 30px rgba(0, 255, 157, 0.05);
+            overflow: hidden;
+        }
+        
+        .dashboard-face::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 157, 0.1) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0, 255, 157, 0.1) 50%, transparent 52%);
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+        
+        .dashboard-content {
+            text-align: center;
+            z-index: 1;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .dashboard-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+            margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .dashboard-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+            margin-bottom: 10px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .dashboard-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            z-index: 2;
+            position: relative;
+        }
+        
+        /* Cyber Animation Background for Dashboard */
+        .cyber-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .cyber-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+            animation: node-pulse 2s infinite alternate;
+        }
+        
+        .cyber-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transform-origin: left center;
+            box-shadow: 0 0 5px var(--primary);
+        }
+        
+        @keyframes node-pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.5); opacity: 1; }
+        }
+        
+        .data-pulse {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
+            animation: data-travel 4s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes data-travel {
+            0% { transform: translate(0, 0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(300px, 150px); opacity: 0; }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            filter: blur(5px);
+            opacity: 0.7;
+            animation: float-around 15s linear infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            background: var(--primary);
+            animation-delay: 0s;
+            width: 15px;
+            height: 15px;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            background: var(--secondary);
+            animation-delay: 2s;
+            width: 25px;
+            height: 25px;
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 80%;
+            left: 40%;
+            background: var(--accent);
+            animation-delay: 4s;
+            width: 10px;
+            height: 10px;
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 30%;
+            left: 70%;
+            background: var(--cyber-blue);
+            animation-delay: 6s;
+            width: 20px;
+            height: 20px;
+        }
+        
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        /* Enhanced Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-family: 'Audiowide', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 20px auto 0;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Soundwave Effect */
+        .soundwave {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .soundwave-bar {
+            width: 4px;
+            height: 20px;
+            background: var(--primary);
+            margin: 0 2px;
+            border-radius: 2px;
+            animation: soundwave 1.5s ease-in-out infinite;
+            box-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        .soundwave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .soundwave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .soundwave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .soundwave-bar:nth-child(5) { animation-delay: 0.4s; }
+        .soundwave-bar:nth-child(6) { animation-delay: 0.5s; }
+        .soundwave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .soundwave-bar:nth-child(8) { animation-delay: 0.7s; }
+        
+        @keyframes soundwave {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(2); }
+        }
+        
+        /* Enhanced About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .skills {
+            flex: 1;
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .skill-percent {
+            color: var(--primary);
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: var(--gray);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Enhanced Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+            padding: 40px 30px;
+            border-radius: 10px;
+            transition: all 0.4s;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 157, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .service-card:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.15);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 157, 0.5));
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px rgba(0, 255, 157, 0.7));
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Enhanced Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 255, 157, 0.1);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: var(--dark);
+            top: 30px;
+            transform: rotate(45deg);
+            border-right: 1px solid rgba(0, 255, 157, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            border-left: 1px solid rgba(0, 255, 157, 0.3);
+            border-top: 1px solid rgba(0, 255, 157, 0.3);
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .certification-card {
+            background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 255, 157, 0.1);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .certification-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 157, 0.5));
+        }
+        
+        .certification-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .certification-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .certification-provider {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        /* Enhanced Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 255, 157, 0.1);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+            color: var(--dark);
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+        
+        .contact-text p {
+            color: var(--text-secondary);
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Exo 2', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(to top, var(--dark), var(--darker));
+            padding: 70px 0 20px;
+            border-top: 1px solid rgba(0, 255, 157, 0.2);
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
+            color: var(--dark);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 255, 157, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Matrix Rain Effect */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            opacity: 0.03;
+        }
+        
+        /* Enhanced Terminal Window */
+        .terminal-window {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            position: relative;
+        }
+        
+        .terminal-window::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 157, 0.05), transparent);
+            z-index: 0;
+        }
+        
+        .terminal-header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .terminal-button.close {
+            background: #ff5f57;
+        }
+        
+        .terminal-button.minimize {
+            background: #ffbd2e;
+        }
+        
+        .terminal-button.maximize {
+            background: #28ca42;
+        }
+        
+        .terminal-button:hover {
+            transform: scale(1.2);
+        }
+        
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        .terminal-body {
+            padding: 20px;
+            font-family: monospace;
+            color: var(--primary);
+            min-height: 150px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .terminal-line {
+            margin-bottom: 5px;
+        }
+        
+        .terminal-prompt {
+            color: var(--matrix-green);
+        }
+        
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--primary);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+        
+        /* Enhanced Security Dashboard Elements */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 157, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .stat-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.1);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.5));
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px rgba(0, 255, 157, 0.7));
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Enhanced Binary Overlay */
+        .binary-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            overflow: hidden;
+        }
+        
+        .binary-code {
+            position: absolute;
+            color: var(--primary);
+            font-family: monospace;
+            font-size: 1rem;
+            white-space: nowrap;
+            animation: binary-scroll 20s linear infinite;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+        }
+        
+        @keyframes binary-scroll {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        /* AI Scanning Overlay */
+        .ai-scan {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .scan-beam {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            box-shadow: 0 0 10px var(--primary);
+            animation: scan-beam 3s linear infinite;
+        }
+        
+        @keyframes scan-beam {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        
+        /* Holographic Alert */
+        .holographic-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 30px;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+            display: none;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .alert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .alert-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-right: 15px;
+            filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.5));
+        }
+        
+        .alert-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .alert-content {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .alert-close {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .alert-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .cyber-dashboard {
+                width: 350px;
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -10px;
+                border-left: 1px solid rgba(0, 255, 157, 0.3);
+                border-top: 1px solid rgba(0, 255, 157, 0.3);
+                border-right: none;
+                border-bottom: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--glass-bg);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                border-top: 1px solid var(--glass-border);
+                backdrop-filter: blur(15px);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cyber-dashboard {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cyber-dashboard {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .dashboard-content h3 {
+                font-size: 1.4rem;
+            }
+            
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="cyber-grid"></div>
+    <div class="hexagon-grid"></div>
+    <div class="circuit-pattern"></div>
+    <div class="scan-line"></div>
+    <div class="particles-container" id="particlesContainer"></div>
+    <div class="data-stream" id="dataStream"></div>
+    <div class="holographic-lines" id="holographicLines"></div>
+    <div class="binary-overlay" id="binaryOverlay"></div>
+    <canvas id="matrix"></canvas>
+    
+    <!-- Single Toggle Theme Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <div class="theme-toggle-inner">
+            <div class="theme-icon">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AI Scanning Overlay -->
+    <div class="ai-scan" id="aiScan">
+        <div class="scan-beam"></div>
+    </div>
+    
+    <!-- Holographic Alert -->
+    <div class="holographic-alert" id="holographicAlert">
+        <div class="alert-header">
+            <div class="alert-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="alert-title">System Secure</div>
+        </div>
+        <div class="alert-content">
+            All security systems are operational. No threats detected. Your digital assets are protected.
+        </div>
+        <button class="alert-close" id="alertClose">Acknowledge</button>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Sivananthan M</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Cybersecurity & <span>SOC Analyst</span></h1>
+                    <p>Protecting digital assets through advanced threat detection, incident response, and security analysis. Specializing in SOC operations, vulnerability management, and security infrastructure.</p>
+                    <p>Expert in <span class="typing-text" id="typing-element"></span></p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+                <div class="hero-image">
+                    <div class="cyber-dashboard">
+                        <div class="dashboard-inner">
+                            <div class="dashboard-face">
+                                <!-- Cyber Animation Background -->
+                                <div class="cyber-animation" id="cyberAnimation"></div>
+                                
+                                <div class="dashboard-content">
+                                    <img src="Image.png" alt="CyberTech Professional" class="dashboard-img">
+                                    <h3>Sivananthan M</h3>
+                                    <p>Cybersecurity & SOC Analyst</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-elements">
+                            <div class="floating-element"></div>
+                            <div class="floating-element"></div>
+                            <div class="floating-element"></div>
+                            <div class="floating-element"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Dedicated cybersecurity professional with expertise in protecting digital infrastructure</p>
+                <div class="soundwave">
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                </div>
+            </div>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">Threats Neutralized</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="stat-number">99.8%</div>
+                    <div class="stat-label">Security Uptime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Vulnerabilities Patched</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">SOC Monitoring</div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Cybersecurity Professional</h3>
+                    <p>I am a dedicated Cybersecurity and SOC Analyst with extensive experience in monitoring, detecting, and responding to security incidents. My expertise lies in protecting organizational assets from cyber threats through proactive security measures and rapid incident response.</p>
+                    <p>With a strong background in security operations centers, I specialize in analyzing security alerts, conducting threat intelligence, and implementing security controls to safeguard critical infrastructure.</p>
+                    
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <div class="terminal-button close"></div>
+                                <div class="terminal-button minimize"></div>
+                                <div class="terminal-button maximize"></div>
+                            </div>
+                            <div class="terminal-title">security_terminal.exe</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">user@sivananthan:~$</span> whoami</div>
+                            <div class="terminal-line">Cybersecurity Analyst | SOC Specialist</div>
+                            <div class="terminal-line"><span class="terminal-prompt">user@sivananthan:~$</span> skills --list</div>
+                            <div class="terminal-line">Threat Detection • Incident Response • SIEM Management</div>
+                            <div class="terminal-line">Vulnerability Assessment • Security Analytics • Forensics</div>
+                            <div class="terminal-line"><span class="terminal-prompt">user@sivananthan:~$</span> <span class="terminal-cursor"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Threat Detection & Analysis</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Incident Response</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">SIEM Management</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Vulnerability Assessment</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Security Tools</span>
+                            <span class="skill-percent">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Comprehensive cybersecurity solutions to protect your digital assets</p>
+                <div class="soundwave">
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                </div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>SOC Monitoring</h3>
+                    <p>24/7 security monitoring and alert analysis using advanced SIEM solutions to detect and respond to potential threats in real-time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Threat Hunting</h3>
+                    <p>Proactive search for malicious activity and advanced persistent threats that may evade traditional security controls.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <h3>Incident Response</h3>
+                    <p>Rapid response to security incidents with containment, eradication, and recovery procedures to minimize business impact.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Vulnerability Management</h3>
+                    <p>Comprehensive vulnerability assessment and management programs to identify and remediate security weaknesses.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Security Analytics</h3>
+                    <p>Advanced security analytics and reporting to provide insights into security posture and threat landscape.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Security Automation</h3>
+                    <p>Implementation of security automation and orchestration to improve efficiency and response times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+                <p>My professional journey in cybersecurity</p>
+                <div class="soundwave">
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Senior SOC Analyst</h3>
+                        <p>Leading security monitoring operations, developing detection use cases, and mentoring junior analysts. Implemented advanced threat detection techniques that reduced false positives by 40%.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Cybersecurity Analyst</h3>
+                        <p>Performed security monitoring, incident investigation, and vulnerability assessment. Developed and maintained security playbooks for common attack scenarios.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Security Operations Center Analyst</h3>
+                        <p>Monitored security alerts, investigated potential incidents, and provided first-line response to security events. Gained expertise in multiple SIEM platforms and security tools.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>IT Security Specialist</h3>
+                        <p>Implemented security controls, conducted security awareness training, and assisted in security incident response. Developed foundational knowledge in network security and endpoint protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+                <p>Professional certifications validating cybersecurity expertise</p>
+                <div class="soundwave">
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                </div>
+            </div>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Foundations of Cybersecurity</h3>
+                    <p>Comprehensive understanding of cybersecurity principles, threats, and defense mechanisms.</p>
+                    <div class="certification-provider">Coursera</div>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified in Cybersecurity</h3>
+                    <p>Professional certification demonstrating expertise in cybersecurity concepts and practices.</p>
+                    <div class="certification-provider">ISC2</div>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analytics</h3>
+                    <p>Skills in analyzing security data, identifying patterns, and extracting actionable insights.</p>
+                    <div class="certification-provider">HPlife</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch to discuss your cybersecurity needs</p>
+                <div class="soundwave">
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                    <div class="soundwave-bar"></div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Chennai, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>sivananthan46m@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 8838727492</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Specialization</h3>
+                            <p>Cybersecurity & SOC Analysis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <a href href="mailto:sivananthan46m@gmail.com"><button type="submit" class="btn">Send Message</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Sivananthan M</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/sivananthanm" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/MSivananthan" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://x.com/SivananthanM6" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/_siva____46/" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sivananthan M. All Rights Reserved. | Cybersecurity Analyst & SOC Specialist</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Set initial theme
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', currentTheme);
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Cyber Animation for Dashboard
+        function createCyberAnimation() {
+            const cyberAnimation = document.getElementById('cyberAnimation');
+            
+            // Create nodes
+            for (let i = 0; i < 15; i++) {
+                const node = document.createElement('div');
+                node.classList.add('cyber-node');
+                node.style.left = `${Math.random() * 100}%`;
+                node.style.top = `${Math.random() * 100}%`;
+                node.style.animationDelay = `${Math.random() * 2}s`;
+                cyberAnimation.appendChild(node);
+            }
+            
+            // Create connections
+            for (let i = 0; i < 10; i++) {
+                const connection = document.createElement('div');
+                connection.classList.add('cyber-connection');
+                
+                const startX = Math.random() * 100;
+                const startY = Math.random() * 100;
+                const endX = Math.random() * 100;
+                const endY = Math.random() * 100;
+                
+                const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+                const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
+                
+                connection.style.width = `${length}%`;
+                connection.style.left = `${startX}%`;
+                connection.style.top = `${startY}%`;
+                connection.style.transform = `rotate(${angle}deg)`;
+                connection.style.opacity = `${0.3 + Math.random() * 0.7}`;
+                
+                cyberAnimation.appendChild(connection);
+            }
+            
+            // Create data pulses
+            for (let i = 0; i < 5; i++) {
+                const pulse = document.createElement('div');
+                pulse.classList.add('data-pulse');
+                pulse.style.left = `${Math.random() * 80}%`;
+                pulse.style.top = `${Math.random() * 80}%`;
+                pulse.style.animationDelay = `${Math.random() * 4}s`;
+                cyberAnimation.appendChild(pulse);
+            }
+        }
+
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*';
+        const charArray = characters.split('');
+        
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 22, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff9d';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+        
+        // Create Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + 'vw';
+                
+                // Random size
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random color
+                const colors = ['#00ff9d', '#00a2ff', '#ff2a6d', '#00f3ff'];
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random animation delay and duration
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Data Stream Effect
+        function createDataStream() {
+            const dataStream = document.getElementById('dataStream');
+            const streamCount = 15;
+            
+            for (let i = 0; i < streamCount; i++) {
+                const streamLine = document.createElement('div');
+                streamLine.classList.add('stream-line');
+                streamLine.style.left = Math.random() * 100 + 'vw';
+                streamLine.style.animationDelay = Math.random() * 5 + 's';
+                streamLine.style.animationDuration = (3 + Math.random() * 4) + 's';
+                dataStream.appendChild(streamLine);
+            }
+        }
+        
+        // Holographic Lines
+        function createHolographicLines() {
+            const holographicLines = document.getElementById('holographicLines');
+            const lineCount = 10;
+            
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.classList.add('holographic-line');
+                line.style.top = Math.random() * 100 + 'vh';
+                line.style.animationDelay = Math.random() * 4 + 's';
+                holographicLines.appendChild(line);
+            }
+        }
+        
+        // Binary Overlay
+        function createBinaryOverlay() {
+            const binaryOverlay = document.getElementById('binaryOverlay');
+            const binaryCount = 20;
+            
+            for (let i = 0; i < binaryCount; i++) {
+                const binaryCode = document.createElement('div');
+                binaryCode.classList.add('binary-code');
+                
+                // Generate random binary string
+                let binaryString = '';
+                for (let j = 0; j < 50; j++) {
+                    binaryString += Math.round(Math.random()) + ' ';
+                }
+                
+                binaryCode.textContent = binaryString;
+                binaryCode.style.left = Math.random() * 100 + 'vw';
+                binaryCode.style.animationDelay = Math.random() * 20 + 's';
+                binaryCode.style.animationDuration = (15 + Math.random() * 10) + 's';
+                
+                binaryOverlay.appendChild(binaryCode);
+            }
+        }
+        
+        // Typing Effect
+        const typingElement = document.getElementById('typing-element');
+        const phrases = [
+            'Threat Detection',
+            'Incident Response',
+            'SOC Operations',
+            'Vulnerability Management',
+            'Security Analytics'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingDelay = 50;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingDelay = 100;
+            }
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingDelay = 1000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingDelay = 500;
+            }
+            
+            setTimeout(type, typingDelay);
+        }
+        
+        // Animate Skill Bars on Scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                    if (isElementInViewport(bar) && !bar.classList.contains('animated')) {
+                    bar.style.width = width + '%';
+                    bar.classList.add('animated');
+                    }
+                    });
+                    }
+
+                    function isElementInViewport(el) {
+                    const rect = el.getBoundingClientRect();
+                    return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                                                     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                    }
+
+                    // Menu Toggle for Mobile
+                    document.querySelector('.menu-toggle').addEventListener('click', function() {
+                    document.querySelector('.nav-links').classList.toggle('active');
+                    });
+
+                    // Smooth Scrolling for Navigation Links
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                    window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    }
+                    });
+                    });
+
+                    // Form Submission
+                    document.getElementById('contactForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Show AI scanning effect
+                    const aiScan = document.getElementById('aiScan');
+                    aiScan.style.opacity = '1';
+
+                    // Show holographic alert after delay
+                    setTimeout(() => {
+                    aiScan.style.opacity = '0';
+                    document.getElementById('holographicAlert').style.display = 'block';
+                    }, 2000);
+
+                    this.reset();
+                    });
+
+                    // Close Holographic Alert
+                    document.getElementById('alertClose').addEventListener('click', function() {
+                    document.getElementById('holographicAlert').style.display = 'none';
+                    });
+
+                    // Cursor Trail Effect
+                    document.addEventListener('mousemove', function(e) {
+                    const cursor = document.createElement('div');
+                    cursor.classList.add('particle');
+                    cursor.style.left = e.pageX + 'px';
+                    cursor.style.top = e.pageY + 'px';
+                    cursor.style.width = '3px';
+                    cursor.style.height = '3px';
+                    cursor.style.animation = 'particle-float 1s linear forwards';
+                    cursor.style.backgroundColor = '#00ff9d';
+
+                    document.body.appendChild(cursor);
+
+                    setTimeout(() => {
+                    cursor.remove();
+                    }, 1000);
+                    });
+
+                    // Initialize
+                    window.addEventListener('load', function() {
+                    createParticles();
+                    createDataStream();
+                    createHolographicLines();
+                    createBinaryOverlay();
+                    createCyberAnimation();
+                    type();
+                    animateSkillBars();
+
+                    // Show holographic alert on page load
+                    setTimeout(() => {
+                    document.getElementById('holographicAlert').style.display = 'block';
+                    }, 3000);
+                    });
+
+                    window.addEventListener('scroll', function() {
+                    animateSkillBars();
+                    });
+
+                    window.addEventListener('resize', function() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    });
+                    </script>
+</body>
+</html>

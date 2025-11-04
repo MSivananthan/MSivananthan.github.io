@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivananthan M | Cybersecurity Analyst & SOC Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0a1a;
+            --secondary: #001233;
+            --accent-blue: #00f3ff;
+            --accent-green: #00ff9d;
+            --accent-cyan: #00e5ff;
+            --accent-red: #ff2a6d;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3cc;
+            --glass: rgba(16, 18, 27, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            overflow: hidden;
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .pulse-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 50%, rgba(0, 242, 255, 0.1) 100%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .name-title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .name-title h2 {
+            font-family: 'Audiowide', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            min-height: 60px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.5rem;
+            background: var(--accent-green);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-blue);
+            transform: translateY(-5px);
+            text-shadow: 0 0 15px var(--accent-blue);
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .social-icon:hover::after {
+            width: 100%;
+        }
+
+        /* Profile Buttons */
+        .profile-buttons {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .profile-btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .profile-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .profile-btn:hover {
+            background: rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .profile-btn:hover::before {
+            left: 100%;
+        }
+
+        .profile-btn.active {
+            background: rgba(0, 242, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.7);
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex: 1;
+        }
+
+        .dashboard-left {
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .dashboard-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Dashboard Panels */
+        .panel {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+
+        .panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 242, 255, 0.2);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-icon {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-right: 1rem;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .panel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Profile Panel */
+        .profile-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-blue);
+            padding: 5px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: conic-gradient(from 0deg, var(--accent-blue), var(--accent-green), var(--accent-cyan), var(--accent-blue));
+            z-index: -1;
+            border-radius: 50%;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--secondary);
+        }
+
+        .profile-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-role {
+            color: var(--accent-green);
+            font-family: 'Audiowide', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Panel */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 20px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 242, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 242, 255, 0.3);
+        }
+
+        /* Projects Panel */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: rgba(16, 18, 27, 0.7);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent-green);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-blue);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Terminal Panel */
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 1.2rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 255, 157, 0.3);
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal-prompt {
+            color: var(--accent-blue);
+            margin-right: 0.5rem;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--accent-green);
+            animation: blink 1s infinite;
+        }
+
+        /* Certifications Panel */
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            margin-right: 1rem;
+        }
+
+        .cert-details h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-details p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .timeline-date {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(0, 242, 255, 0.3);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .dashboard-left {
+                flex: 1;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .name-title h1 {
+                font-size: 2rem;
+            }
+
+            .name-title h2 {
+                font-size: 1.2rem;
+            }
+
+            .profile-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="pulse-lines"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="name-title">
+                <h1>SIVANANTHAN M</h1>
+                <h2 id="typing-text"></h2>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/sivananthanm" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/SivananthanM6" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://msivananthan.github.io/Sivananthan.github.io/" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/_siva____46/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </header>
+
+        <!-- Profile Buttons -->
+        <div class="profile-buttons">
+            <a href="Personal.html"><button class="profile-btn active" data-tab="personal">PERSONAL PROFILE</button></a>
+            <a href="professional.html"><button class="profile-btn active" data-tab="professional">PROFESSIONAL PROFILE</button></a>
+        </div>
+
+        <!-- Personal Profile Dashboard -->
+        <section class="dashboard personal-profile active">
+            
+            <!-- Left Column (Now contains the profile panel) -->
+            <div class="dashboard-left">
+                <!-- Profile Panel -->
+                <div class="panel profile-panel">
+                    <div class="profile-image">
+                        <!-- Placeholder for profile image -->
+                        <div style="width:100%;height:100%;background:var(--secondary);display:flex;align-items:center;justify-content:center;">
+                             <img src="Image.png" alt="CyberTech Professional" class="dashboard-img">
+                        </div>
+                    </div>
+                    <h3 class="profile-name">SIVANANTHAN M</h3>
+                    <p class="profile-role">CYBERSECURITY ANALYST & SOC SPECIALIST</p>
+                    <p>Protecting digital frontiers through advanced security solutions and innovative development.</p>
+
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value">02</div>
+                            <div class="stat-label">PROJECTS</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">0.5</div>
+                            <div class="stat-label">YEARS</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">SUCCESS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terminal Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon"><i class="fas fa-terminal"></i></div>
+                        <h3 class="panel-title">SECURITY TERMINAL</h3>
+                    </div>
+                    <div class="terminal">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">root@cyber-terminal:~$</span> system status --check
+                        </div>
+                        <div class="terminal-line">
+                            > Firewall: <span style="color:var(--accent-green)">ACTIVE</span>
+                        </div>
+                        <div class="terminal-line">
+                            > Intrusion Detection: <span style="color:var(--accent-green)">RUNNING</span>
+                        </div>
+                        <div class="terminal-line">
+                            > Threat Database: <span style="color:var(--accent-green)">UPDATED</span>
+                        </div>
+                        <div class="terminal-line">
+                            > Network Monitoring: <span style="color:var(--accent-green)">SCANNING</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">root@cyber-terminal:~$</span> <span class="terminal-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon"><i class="fas fa-envelope"></i></div>
+                        <h3 class="panel-title">CONTACT</h3>
+                    </div>
+                    <p>Ready to secure your digital assets? Let's connect and discuss your cybersecurity needs.</p>
+                    <button class="profile-btn" style="margin-top:1rem;width:100%;" id="contact-btn">SEND MESSAGE</button>
+                </div>
+            </div>
+
+            <!-- Right Column (Now contains the main content panels) -->
+            <div class="dashboard-right">
+                <!-- About Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon"><i class="fas fa-user-secret"></i></div>
+                        <h3 class="panel-title">ABOUT ME</h3>
+                    </div>
+                    <p>Cybersecurity specialist, Passionate about creating robust defense systems and staying ahead of emerging threats in the digital landscape.My expertise spans across SOC operations, incident response and Security Operation Centre. I thrive in high-pressure environments where critical thinking and rapid response are essential to protecting organizational assets.</p>
+                </div>
+
+                <!-- Skills Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="panel-title">CORE SKILLS</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">Threat Intelligence</div>
+                        <div class="skill-item">Incident Response</div>
+                        <div class="skill-item">Penetration Testing</div>
+                        <div class="skill-item">Secure Coding</div>
+                        <div class="skill-item">Network Security</div>
+                        <div class="skill-item">Cryptography</div>
+                        <div class="skill-item">Cloud Security</div>
+                        <div class="skill-item">Malware Analysis</div>
+                        <div class="skill-item">SIEM Management</div>
+                        <div class="skill-item">Digital Forensics</div>
+                        <div class="skill-item">Vulnerability Assessment</div>
+                        <div class="skill-item">Security Architecture</div>
+                    </div>
+                </div>
+
+                <!-- Projects Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon"><i class="fas fa-code"></i></div>
+                        <h3 class="panel-title">RECENT PROJECTS</h3>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h4 class="project-title">THREAT DETECTION AI</h4>
+                            <p class="project-desc">Machine learning system for real-time threat identification and classification with 98% accuracy in detecting zero-day attacks.</p>
+                        </div>
+                        <div class="project-card">
+                            <h4 class="project-title">SECURE COMM PROTOCOL</h4>
+                            <p class="project-desc">Encrypted communication framework with quantum-resistant algorithms for secure enterprise communications.</p>
+                        </div>
+                        <div class="project-card">
+                            <h4 class="project-title">VULNERABILITY SCANNER</h4>
+                            <p class="project-desc">Automated security assessment tool for web applications and networks that reduced manual testing time by 70%.</p>
+                        </div>
+                        <div class="project-card">
+                            <h4 class="project-title">SOC AUTOMATION</h4>
+                            <p class="project-desc">Playbook-driven automation system that reduced incident response time from hours to minutes for common attack patterns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Sivananthan M. All Rights Reserved. | Cybersecurity Analyst & SOC Specialist</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating particles
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random position
+                const left = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = 10 + Math.random() * 10;
+
+                particle.style.left = `${left}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+
+            // Auto-type animation for the title
+            const typingText = document.getElementById('typing-text');
+            const text = "CYBERSECURITY ANALYST & <br> SOC SPECIALIST";
+            
+            let index = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+            
+            function type() {
+                const currentText = text.substring(0, index);
+                typingText.innerHTML = currentText + '<span class="typing-cursor"></span>';
+                
+                if (!isDeleting && index < text.length) {
+                    index++;
+                    typingSpeed = 100;
+                } else if (isDeleting && index > 0) {
+                    index--;
+                    typingSpeed = 50;
+                } else {
+                    isDeleting = !isDeleting;
+                    typingSpeed = isDeleting ? 1000 : 500;
+                }
+                
+                setTimeout(type, typingSpeed);
+            }
+            
+            // Start typing after a short delay
+            setTimeout(type, 1000);
+
+            // Tab switching functionality
+            const personalTab = document.querySelector('.personal-profile');
+            const professionalTab = document.querySelector('.professional-profile');
+            const buttons = document.querySelectorAll('.profile-btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tab = this.getAttribute('data-tab');
+
+                    // Update active button
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show appropriate tab
+                    if (tab === 'personal') {
+                        personalTab.classList.add('active');
+                        professionalTab.classList.remove('active');
+                    } else {
+                        personalTab.classList.remove('active');
+                        professionalTab.classList.add('active');
+                    }
+                });
+            });
+
+            // Contact button functionality
+            const contactBtn = document.getElementById('contact-btn');
+            if (contactBtn) {
+                contactBtn.addEventListener('click', function() {
+                    // Switch to professional tab and scroll to contact form
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('[data-tab="professional"]').classList.add('active');
+
+                    personalTab.classList.remove('active');
+                    professionalTab.classList.add('active');
+
+                    // Scroll to contact form
+                    const contactForm = document.querySelector('.contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+
+            // Terminal typing effect
+            const terminal = document.querySelector('.terminal');
+            const cursor = document.querySelector('.terminal-cursor');
+            const lines = [
+                "scanning network...",
+                "analyzing traffic patterns...",
+                "checking for anomalies...",
+                "all systems secure."
+            ];
+
+            let lineIndex = 0;
+            let charIndex = 0;
+            let isTerminalDeleting = false;
+
+            function typeTerminal() {
+                const currentLine = lines[lineIndex];
+
+                if (!isTerminalDeleting && charIndex <= currentLine.length) {
+                    cursor.parentElement.textContent = "root@cyber-terminal:~$ " + currentLine.substring(0, charIndex);
+                    charIndex++;
+                    setTimeout(typeTerminal, 100);
+                } else if (isTerminalDeleting && charIndex >= 0) {
+                    cursor.parentElement.textContent = "root@cyber-terminal:~$ " + currentLine.substring(0, charIndex);
+                    charIndex--;
+                    setTimeout(typeTerminal, 50);
+                } else {
+                    isTerminalDeleting = !isTerminalDeleting;
+                    if (!isTerminalDeleting) {
+                        lineIndex = (lineIndex + 1) % lines.length;
+                    }
+                    setTimeout(typeTerminal, 1000);
+                }
+
+                // Add cursor back
+                cursor.parentElement.appendChild(cursor);
+            }
+
+            // Start typing after a delay
+            setTimeout(typeTerminal, 2000);
+        });
+    </script>
+</body>
+</html>
